@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/main.css" type="text/css">
+    <script src="scripts/functions.js"></script>
+</head>
+<body>
+    <img id="winner" src="images/giphy.gif" alt="winner gif">
+    <audio id="lost">
+        <source src="sounds/lost.mp3" type="audio/mp3">
+    </audio>  
+    <audio id="win">
+        <source src="sounds/win.mp3" type="audio/mp3">
+    </audio>   
+
+<header>
+    <img src="images/lottosmall.png" alt="National Lottery">
+    <h1 id="headingText">How Much Will You Win?!!</h1>
+</header>
+<main>
+    <label id="numberInput" for="pickNumbers">Enter 6 numbers! 1 to 40</label><br><br>
+        <input type="text" name="txtPickNumbers" id="pickNumbers" placeholder="1 - 40" autofocus><br>
+            <p id="instructions">Enter one number at a time.</p>
+    <label for="submitNumber"></label>
+        <input type="button" name="btnSubmitNumber" id="submitNumber" class="enter" value="Submit Number" onclick="storeNumber(pickNumbers.value)"><br><br>
+    <label for="drawNumbers">Draw Winning Numbers</label>
+        <input type="button" name="btnDrawNumbers" id="drawNumbers" value="Draw Winning Numbers" onclick="lotteryNumbersDraw()"><br>
+    <img id="balls" src="images/balls.png" alt="National Lottery">
+        <p id="userNum"></p>
+        <p id="lotteryNum"></p>
+        <p id="userMatches"></p>
+        <p id="matchedBalls"></p>
+        <p id="userWinnings"></p>
+    <label for="submitNumber">Play Again</label>
+        <input type="button" name="btnplayAgain" id="playAgain" value="Play Again" onclick="playAgain()">
+</main>
+<footer>
+<p>&copy2022  Craig Lawyer</p>
+<p>This is a fictitious lottery. No real money can be won. Have fun!!</p>
+</footer> 
+</body>
+<script>
+    document.getElementById("pickNumbers")
+    .addEventListener("keyup", function(event){
+        event.preventDefault();
+        if(event.key === 'Enter' && userNumbers.length < 6){
+            document.getElementById("submitNumber").click();
+        }
+    });
+
+</script>   
+</html>
